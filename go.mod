@@ -1,3 +1,3 @@
-module github.com/yassinebenaid/leetcode-problems
+module github.com/yassinebenaid/leetcode-solutions
 
 go 1.21.6
