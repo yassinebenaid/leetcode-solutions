@@ -10,6 +10,7 @@ func TestFindCommenPrefix(t *testing.T) {
 		{[]string{"flower", "flow", "flight", "fl"}, "fl"},
 		{[]string{"dog", "racecar", "car"}, ""},
 		{[]string{"flowering", "flowering", "flowering", "flowering"}, "flowering"},
+		{[]string{}, ""},
 	}
 
 	for _, tc := range testCases {

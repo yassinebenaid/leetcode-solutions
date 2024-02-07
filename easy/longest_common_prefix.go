@@ -16,9 +16,12 @@ package easy
 *	-------------------------------------------------
  */
 func findLongestCommonPrefix(strs []string) string {
+	if len(strs) < 1 {
+		return ""
+	}
+
 	var prefix []byte
 	var last byte
-
 	for i := 0; ; i++ {
 		for _, word := range strs {
 			if len(word) <= i {
