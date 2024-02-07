@@ -2,6 +2,7 @@ package medium
 
 import (
 	"reflect"
+	"sort"
 	"testing"
 )
 
@@ -25,7 +26,16 @@ func TestGroupAnagram(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		if result := groupAnagrams(tc.input); !reflect.DeepEqual(result, tc.expected) {
+		// the result may be in any order
+		// we need to sort the result to match our test case
+		result := groupAnagrams(tc.input)
+		sort.Slice(result, func(i, j int) bool {
+			return len(result[i]) > len(result[j])
+		})
+
+		t.Log(result)
+
+		if !reflect.DeepEqual(result, tc.expected) {
 			t.Fatalf(`expected "%s" to return "%v", got "%v"`, tc.input, tc.expected, result)
 		}
 	}
